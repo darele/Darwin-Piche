@@ -1,3 +1,4 @@
+//lo hice solo
 #include <bits/stdc++.h>
 #define tam 100010
 
