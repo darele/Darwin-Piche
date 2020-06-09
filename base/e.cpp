@@ -3,7 +3,7 @@
 #define vi vector <int>
 #define vl vector <ll>
 #define dl pair <ll, ll>
-#define ii pair <ll, ll>
+#define ii pair <int, int>
 #define vii vector <ii>
 #define graph vector <vi>
 #define inf 1000000000
