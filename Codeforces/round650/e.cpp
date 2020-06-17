@@ -29,30 +29,43 @@ int main() {
 	int t;
 	cin >> t;
 	while (t--) {
-		int n, k;
-		cin >> n >> k;
+		int n, l;
+		cin >> n >> l;
 		string s;
 		cin >> s;
 		vi letras(26, 0);
 		for (int i = 0; i < n; i++) {
 			letras[s[i] - 'a']++;
 		}
-		sort(letras.begin(), letras.end(), comp);
+		sort(letras.begin(), letras.end());
 		int i;
 		vi copia(26);
+		vector <bool> vis;
 		copia = letras;
+		int ac = 0;
 		for (i = n; i > 0; i--) {
-			int x = i % k;
-			if (x == 0) x = k;
-			if (k % x == 0) {
-				letras = copia;
-				int temp1 = i / x;
-				int cont = 0;
-				for (int j = 0; cont < x && j < 26; j++) {
-					while (cont < x && letras[j] >= temp1) {letras[j] -= temp1; cont++;}
+			letras = copia;
+			vis.assign(n, 0);
+			bool band = true;
+			for (int j = 0; !vis[j]; j++) {
+				int temp = 0;
+				for (int k = j; !vis[k % i]; k += l) {
+					vis[k % i] = 1;
+					temp++;
 				}
-				if (cont == x) break;
+				int k;
+				for (k = 0; k < 26; k++) {
+					if (letras[k] >= temp) {
+						letras[k] -= temp;
+						break;
+					}
+				}
+				if (k == 26) {
+					band = false;
+					break;
+				}
 			}
+			if (band) break;
 		}
 		cout << i << "\n";
 	}
