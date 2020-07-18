@@ -56,6 +56,7 @@ int query(int l, int r) {
 	//adjust ans accordingly
 	int ans = 0;
 	for (; l < r; l >>= 1, r >>= 1) {
+		//ans = max or min(ans, t[l++])
 		if (l & 1) ans += t[l++];
 		if (r & 1) ans += t[--r];
 	}
