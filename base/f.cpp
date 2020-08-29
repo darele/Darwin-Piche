@@ -6,17 +6,21 @@
 #define ii pair <int, int>
 #define vii vector <ii>
 #define graph vector <vi>
+#define REP(a, b) for (int i = a, i < b; i++)
+#define REP2(a, b) for (int j = a, j < b; j++)
+#define REPS(a, b, c) for (int i = a, i < b; i += c)
+
 #define inf 1000000000
-
+ 
 using namespace std;
-
-bool comp(int a, int b) {
-	return a > b;
+ 
+bool comp(ll a, ll b) {
+    return a > b;
 }
-
+ 
 int main() {
-	ios_base::sync_with_stdio(false), cin.tie(0), cout.tie(0);
+    ios_base::sync_with_stdio(false), cin.tie(0), cout.tie(0);
 
 
-	return 0;
+    return 0;
 }
