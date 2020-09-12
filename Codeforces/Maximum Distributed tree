@@ -1,0 +1,96 @@
+/*
+https://codeforces.com/contest/1401/problem/D
+round 655 Problema D
+*/
+#include <bits/stdc++.h>
+#define ll long long
+#define ii pair <int, int>
+#define dl pair <ll, ll>
+#define vi vector <int>
+#define vl vector <ll>
+#define vii vector <ii>
+#define graph vector <vi>
+#define REP(a, b) for (int i = a; i < b; i++)
+#define REP2(a, b) for (int j = a; j < b; j++)
+#define REPS(a, b, c) for (int i = a; i < b; i += c)
+#define mod 1000000007
+
+using namespace std;
+
+int n;
+vi p;
+vl s;
+vl a;
+graph grafo;
+
+void dfs(int u) {
+    s[u] = 1;
+    for (int v : grafo[u]) {
+        if (v == p[u]) continue;
+        p[v] = u;
+        dfs(v);
+        s[u] += s[v];
+    }
+}
+
+int main() {
+	ios_base::sync_with_stdio(0); cin.tie(0); cout.tie(0);
+
+    int t;
+    cin >> t;
+    while (t--) {
+        cin >> n;
+        p.assign(n + 5, 0);
+        s.assign(n + 5, 1);
+        a.assign(n - 1, 1);
+        grafo.assign(n + 5, vi());
+        REP(0, n + 5) p[i] = i;
+        int in1, in2;
+        pair <int, int> lista[n - 1];
+        REP(1, n) {
+            cin >> in1 >> in2;
+            lista[i - 1] = {in1, in2};
+            grafo[in1].push_back(in2);
+            grafo[in2].push_back(in1);
+        }
+        dfs(1);
+        REP(0, n - 1) {
+            in1 = lista[i].first, in2 = lista[i].second;
+            if (in2 == p[in1]) swap(in1, in2);
+            a[i] = (s[in2] * (s[1] - s[in2]));
+        }
+        int m;
+        cin >> m;
+        vl k(m);
+        REP(0, m) {
+            cin >> k[i];
+        }
+        ll suma = 0;
+        int i;
+        if (m > n - 1) {
+            sort(k.begin(), k.end());
+            sort(a.begin(), a.end());
+            for (i = 0; i < n - 2; i++) {
+                suma = (suma + (a[i] * k[i]) % mod) % mod;
+            }
+            ll prod = 1;
+            for (; i < m; i++) {
+                prod *= k[i];
+                prod %= mod;
+            }
+            suma = (suma + (a[n - 2] * prod) % mod) % mod;
+            cout << suma << "\n";
+            continue;
+        }
+        sort(a.rbegin(), a.rend());
+        sort(k.rbegin(), k.rend());
+        for (i = 0; i < m; i++) {
+            suma = (suma + (a[i] * k[i]) % mod) % mod;
+        }
+        for (; i < n - 1; i++) {
+            suma = (suma + a[i]) % mod;
+        }
+        cout << suma << "\n";
+    }
+    return 0;
+}
