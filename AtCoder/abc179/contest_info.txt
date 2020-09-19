@@ -1,0 +1,10 @@
+https://atcoder.jp/contests/abc179/tasks
+
+a- En serio tengo que explicar este XD
+
+b- No olvides verificar al final si tuviste mas de 3 iguales
+
+c- Cuantos B existen para este A, sin que A x B = N
+
+d- Este es el problema de los rangos cubriendo elementos combinado con dp de la rana saltarina
+   hace falta tener cuidado con los negativos (+ mod % mod y modulos en negativo)
