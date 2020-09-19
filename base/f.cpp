@@ -11,13 +11,9 @@
 #define REPS(a, b, c) for (int i = a, i < b; i += c)
 
 #define inf 1000000000
- 
+
 using namespace std;
- 
-bool comp(ll a, ll b) {
-    return a > b;
-}
- 
+
 int main() {
     ios_base::sync_with_stdio(false), cin.tie(0), cout.tie(0);
 
