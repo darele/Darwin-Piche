@@ -8,3 +8,6 @@ c- Cuantos B existen para este A, sin que A x B = N
 
 d- Este es el problema de los rangos cubriendo elementos combinado con dp de la rana saltarina
    hace falta tener cuidado con los negativos (+ mod % mod y modulos en negativo)
+
+e- En algun momento vas a encontrar un ciclo porque tuviste que haber pasado por los m - 1 posibles residuos
+	solo tenes que encontrar que ciclo es el que se repite
