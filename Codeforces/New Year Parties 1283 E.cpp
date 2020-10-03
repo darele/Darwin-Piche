@@ -1,5 +1,8 @@
 /*
 https://codeforces.com/problemset/problem/1283/D
+el mayor lo hacemos greedy, el menor es mas complejo
+primero se unifican los elementos, luego si podes unir 3 en uno, hacelo
+sino talves podrias hacer temp[i] + 1 == temp[i + 1] - 1, ahi solo puedo unir 2
 */
 
 #include <bits/stdc++.h>
