@@ -1,5 +1,9 @@
 /*
 https://codeforces.com/contest/1426/problem/E
+para el maximo es un poco obvio
+para el minimo tenemos que tomar las opciones que dirigen a un empate y
+las que llevan a una perdida, y tomar todas las permutaciones de hacer todos esos matches
+y obtener el minimo
 */
 
 #include <bits/stdc++.h>
