@@ -2,6 +2,7 @@ fun main(args: Array<String>) {
     
     //Impresion de datos
     println("Hello World")
+    print("Hello World") //sin salto de linea
 
     //declaracion de variables
     var num: Int = 42;
