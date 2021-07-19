@@ -1,22 +1,32 @@
 #include <bits/stdc++.h>
+#define DBG(x) cerr << #x << "=" << (x) << "\n"
+#define RAYA cerr << "======================\n"
 #define ll long long
+#define ii pair <int, int>
+#define dl pair <ll, ll>
 #define vi vector <int>
 #define vl vector <ll>
-#define dl pair <ll, ll>
-#define ii pair <int, int>
 #define vii vector <ii>
 #define graph vector <vi>
+#define ff first
+#define ss second
 #define REP(a, b) for (int i = a; i < b; i++)
 #define REP2(a, b) for (int j = a; j < b; j++)
 #define REPS(a, b, c) for (int i = a; i < b; i += c)
 
-#define inf 1000000000
-
 using namespace std;
 
+void solve() {
+    
+}
+
 int main() {
-    ios_base::sync_with_stdio(false), cin.tie(0), cout.tie(0);
+    ios_base::sync_with_stdio(0); cin.tie(0); cout.tie(0);
 
-
+    int t = 1;
+    cin >> t;
+    while (t--) {
+        
+        solve();
     return 0;
 }
