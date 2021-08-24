@@ -17,16 +17,27 @@
 using namespace std;
 
 void solve() {
-    
+    int a, b;
+    cin >> a >> b;
+    int i = 0;
+    int x = 0;
+    while (i < 10) {
+        if ((a & (1 << i)) != (b & (1 << i))) {
+            x |= (1 << i);
+        }
+        i++;
+    }
+    cout << x << "\n";
 }
 
 int main() {
     ios_base::sync_with_stdio(0); cin.tie(0); cout.tie(0);
 
     int t = 1;
-    cin >> t;
+    //cin >> t;
     while (t--) {
         
         solve();
+    }
     return 0;
 }
