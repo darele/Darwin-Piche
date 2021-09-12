@@ -94,7 +94,28 @@ public class RunMe {
                 print(4, i, password);
             }
         }*/
-
+        long kika = 5740487520438743858L;
+        long ans = 0;
+        int i = 33;
+        int j = 0;
+        int k = 0;
+        while ((1L << k) <= kika) {
+            if ((1L << k) < 0) break;
+            k++;
+        }
+        k--;
+        i = k;
+        while (j < 32) {
+            ans |= (kika & (1L << k));
+            j++;
+            k--;
+        }
+        while (k >= 0) {
+            if (((ans & (1L << i)) ^ (kika & (1L << k)) != 0)) ans |= (1L << k);
+            i--;
+            k--;
+        }
+        print(4, ans, password);
     }
 
 
