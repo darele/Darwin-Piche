@@ -1,0 +1,37 @@
+#!/bin/bash
+#codigo que Humberto me dio
+CFLAGS="--std=c++17 -Wall -O2"
+
+if [ "$#" -ne 1 ]; then
+    echo "USAGE: $0 basename"
+    exit 1
+fi
+
+if [[ $1 == */* ]];
+then
+    base=$1
+else
+    base="./$1"
+fi
+
+if [ -f $base ]; then
+    rm $base
+fi
+
+g++ $CFLAGS -o $base $base.cpp
+
+if [[ $? == 0 ]];
+then
+    csplit -k -s -f part. $base.in /^---/ "{100}" 2>/dev/null
+
+    ls part.?? | while read file; do
+      sed '/^---/ d' ${file} > ${file}.new && mv ${file}.new ${file}
+      cat ${file}
+      "$base" < ${file}
+      echo '----------------------------------'
+    done
+
+    rm part.??
+fi
+exit 0
+
